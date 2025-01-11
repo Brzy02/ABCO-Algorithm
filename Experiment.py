@@ -81,7 +81,7 @@ def testing():
      
                             graph(25, 1, exp, 1, 1, 2, -5, 5, 0.05, 0.3, 5,'min','Himmelblau',3.0,2.0, 80)# popsplit=0.3
                             print("#done")
-                            index+=1
+                            #index+=1
                                 
         
 testing() 
