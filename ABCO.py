@@ -19,6 +19,7 @@ import time#to time running of algorithm
 from datetime import datetime
 
 #two dimensional functions
+"""This function returns the solution of a test function (Dependent on the variable parameter) using the x and y parameter values """
 def fitness_func2d(x,y, variable):
     a = -20.0 * exp(-0.2 * sqrt(0.5 * (x**2 + y**2))) - exp(0.5 * (cos(2 * pi * x) + cos(2 * pi * y))) + e + 20 #[-5,5] # ackley function
     if variable == "Ackley":
@@ -61,6 +62,7 @@ def fitness_func2d(x,y, variable):
 
 
 #one dimensional functions
+"""This function returns the solution of a one dimensional test function (Dependent on the variable parameter) using the x parameter values"""
 def fitness_func1d(x, variable):
     s =  np.sum(np.square(x))
     r = np.sum([np.square(x) - 10 * np.cos(2 * np.pi * x) + 10]) # rastgrin
@@ -71,11 +73,12 @@ def fitness_func1d(x, variable):
     if variable == "Rastrigin":
         return r
     
-
+"""This function returns the euclidean distance between points x1 and x2 """
 def eucldist(x1,x2): # calculates distance between bacteria in algorithm
     distance = np.sqrt(np.sum((x1-x2)**2))
     return distance
 
+"""This is the main ABCO algorithm"""
 def BCO(pop_s, iter, step_s, step_exp, step_explt, step_tum, dim, lb, ub, threshold, s, k, weight_mode, variable,val1,val2, unchangedthreshold):
     
     start = time.time()#datetime.now()#start counting
