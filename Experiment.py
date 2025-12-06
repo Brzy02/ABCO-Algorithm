@@ -8,12 +8,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 """This function runs the algorithm 50 times and stores the time taken, best solutions and error rate for each run. It stores this information in a text file """
-def graph(pop_s, step_s, step_exp, step_explt, step_tum, dim, lb, ub, threshold, s, k, weight_mode, variable,val1,val2,unchangedthreshold):
+def graph(pop_s, iter, step_s, step_exp, step_explt, step_tum, dim, lb, ub, threshold, s, k, weight_mode, variable,val1,val2,unchangedthreshold):
     arr=[]
     arrsol=[]
     arrerr=[]
     for i in range(50):
-        fyp.BCO(pop_s, step_s, step_exp, step_explt, step_tum, dim, lb, ub, threshold, s, k, weight_mode, variable,val1,val2,unchangedthreshold) #step_s, step_exp, steps_explt, step_tum, dim, lb, ub, threshold, s, k, 
+        fyp.BCO(pop_s, iter, step_s, step_exp, step_explt, step_tum, dim, lb, ub, threshold, s, k, weight_mode, variable,val1,val2,unchangedthreshold) #step_s, step_exp, steps_explt, step_tum, dim, lb, ub, threshold, s, k, 
         arr.insert(i,fyp.BCO.final_time)
         arrsol.insert(i, fyp.BCO.bestsolution)
         arrerr.insert(i, fyp.BCO.error)
@@ -47,7 +47,7 @@ def testing():
         #for exp in testDict['stepexplore']: 
          
         #for t in testDict['threshold']:
-
+        iter=200
         for s in testDict['popsplit']:
             for exp in testDict['stepexplore']: 
                     for kn in testDict['kN']:
@@ -61,25 +61,25 @@ def testing():
                                     print(f'',file=f)
                                     print(f'#When stepexplore={exp}and popsize=25  knn  results ',file=f)
                                    
-                            graph(25, 1, exp, 1, 1, 2, -10, 10, 0.4, s, kn,'min','Holders',8.05502,9.66459, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -10, 10, 0.4, s, kn,'min','Holders',8.05502,9.66459, 80)#
      
-                            graph(25, 1, exp, 1, 1, 2, -100, 100, 0.05, s, kn,'min','Easom',fyp.pi,fyp.pi, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -100, 100, 0.05, s, kn,'min','Easom',fyp.pi,fyp.pi, 80)#
      
-                            graph(25, 1, exp, 1, 1, 2, -2, 2, 0.05, s, kn,'min','Goldstein',0,-1, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -2, 2, 0.05, s, kn,'min','Goldstein',0,-1, 80)#
      
-                            graph(25, 1, exp, 1, 1, 2, -5, 10, 0.4, s, kn,'min','Rosenbrock',1,1, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -5, 10, 0.4, s, kn,'min','Rosenbrock',1,1, 80)#
      
-                            graph(25,1, exp, 1, 1, 2, -5, 5, 0.05, s, kn,'min','Ackley',0,0, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -5, 5, 0.05, s, kn,'min','Ackley',0,0, 80)#
      
-                            graph(25, 1, exp, 1, 1, 2, -100, 100, 0.3, s, kn,'min','Schaffer',0,0, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -100, 100, 0.3, s, kn,'min','Schaffer',0,0, 80)#
      
-                            graph(25, 1, exp, 1, 1, 1, -5.12, 5.12, 0.05,s, kn,'min','Rastrigin',0,fyp.pi, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 1, -5.12, 5.12, 0.05,s, kn,'min','Rastrigin',0,fyp.pi, 80)#
      
-                            graph(25, 1, 1, 1, 1, 1, -100, 100, 0.4, 0.5, 15,'min','Sphere',0,0, 80)# def knn=15 and popsize=25 or knn=2 when pop=15
+                            graph(25, iter, 1, 1, 1, 1, 1, -100, 100, 0.4, 0.5, 15,'min','Sphere',0,0, 80)# def knn=15 and popsize=25 or knn=2 when pop=15
      
-                            graph(25, 1, exp, 1, 1, 2, -10, 10, 0.3, s, kn,'min','Booth',1,3, 80)#
+                            graph(25, iter, 1, exp, 1, 1, 2, -10, 10, 0.3, s, kn,'min','Booth',1,3, 80)#
      
-                            graph(25, 1, exp, 1, 1, 2, -5, 5, 0.05, 0.3, 5,'min','Himmelblau',3.0,2.0, 80)# popsplit=0.3
+                            graph(25, iter, 1, exp, 1, 1, 2, -5, 5, 0.05, 0.3, 5,'min','Himmelblau',3.0,2.0, 80)# popsplit=0.3
                             print("#done")
                             #index+=1
                                 
