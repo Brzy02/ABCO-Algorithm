@@ -1,0 +1,16 @@
+[project]
+name = "abco-optimization-ai-model"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Brzy02",email = "106616723+Brzy02@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "matplotlib>=3.9.4",
+    "numpy>=2.0.2",
+    "scikit-learn>=1.6.1",
+]
+
+
